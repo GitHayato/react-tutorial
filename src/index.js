@@ -81,8 +81,12 @@ class Game extends React.Component {
 
   render() {
     const history = this.state.history;
+    // => history: [{squares: Array(9).fill(null)}]
+    // => history: [{squares: [null, null, null, null, null, null, null, null, null]}]
     const current = history[this.state.stepNumber];
+    // => history: [{squares: [null, null, null, null, null, null, null, null, null]}]
     const winner = calculateWinner(current.squares);
+    // => null
 
     const moves = history.map((step, move) => {
       const desc = move ?
@@ -121,6 +125,7 @@ class Game extends React.Component {
 
 // ========================================
 
+// GameクラスをルートDOMノードに描画
 ReactDOM.render(
   <Game />,
   document.getElementById('root')
